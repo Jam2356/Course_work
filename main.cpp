@@ -42,7 +42,7 @@ class Interface   //принимает значения из комстроки 
 {
 public:
     static int serverPort;
-    int fileStrNumber()
+    unsigned int fileStrNumber()
     {
         ifstream input(sourceFile);
         string l;
@@ -60,9 +60,11 @@ public:
         int i = 0;
         while(i <= strNumber) {
             getline(input, l);
-            sizeVect.at(i) = stoi(string(1, l[0]));
+            
+            sizeVect.at(i) = stoi(string(l));
             i++;
         }
+        
         sizeVect.erase(sizeVect.begin());//удаление первого значения
         /*for (int i = 0; i < sizeVect.size(); i++) { //если надо отобразить вектор
             cout << sizeVect[i] << " ";
@@ -70,12 +72,12 @@ public:
         input.close();
         return sizeVect;
     }
-    vector <vector<double>> fileVectData()
+    vector <vector<uint32_t>> fileVectData()
     {
         ifstream input1(sourceFile);
         string l;
         getline(input1, l);
-        vector <vector<double>> vec(strNumber);
+        vector <vector<uint32_t>> vec(strNumber);
         string parsed;
         int i = 0;
         while(i < strNumber) {
@@ -84,7 +86,7 @@ public:
             stringstream input_stringstream(l);
             for(int j = 0; j < fileStrSize()[i]; j++) {
                 if (getline(input_stringstream,parsed,' ')) {
-                    double dou = atof(parsed.c_str());
+                    uint32_t dou = atoi(parsed.c_str());
                     vec.at(i).push_back(dou);
                 }
             }
@@ -92,13 +94,6 @@ public:
                 i++;
             }
         }
-        /*cout << "\n\nПросмотр vec:" << endl << endl; //если надо отобразить вектор double
-        for (int i = 0; i < strNumber; i++) {
-            cout << "\n" << endl;
-            for (int j = 0; j < fileStrSize()[i]; j++) {
-                cout << vec[i][j] << " ";
-            }
-        }*/
         input1.close();
         return vec;
     }
@@ -141,7 +136,7 @@ public:
         return sourceFile;
     }
 private:
-    int strNumber;
+    unsigned int strNumber;
     string sourceFile;
     string resultFile;
     string clientID = "user";
@@ -179,9 +174,18 @@ int main(int argc, char **argv)
             cout << InterfFile.fileVectData()[i][j] << " ";
         }
     }
+    
+    cout << "\n\nString size: \n" << endl;
+    for(int i = 0; i < InterfFile.fileStrNumber(); i++){
+        cout << InterfFile.fileStrSize()[i] << " ";
+    }
+    
     cout << "\n\nUser ID: " << InterfFile.getClientID() << endl << endl;
     cout << "User password: " << InterfFile.getClientPass() << endl << endl;
     cout << "Server port: " << Interface::serverPort << endl << endl;
+
+
+
 
 
 

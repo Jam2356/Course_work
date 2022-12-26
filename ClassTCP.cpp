@@ -61,9 +61,9 @@ string ConnectTCP::sendingPass(string completeHASH)
 
     return charsMSG;//////////
 }
-string ConnectTCP::sendingData(int number, vector<unsigned int> sizes, vector <vector<double>> data)
+string ConnectTCP::sendingData(unsigned int number, vector<unsigned int> sizes, vector <vector<uint32_t>> vData)
 {
-    int bufNumber[1];
+    unsigned int bufNumber[1];
     bufNumber[0] = number;
     int sendRes3 = send(sock, bufNumber, sizeof(bufNumber), 0);
     if (sendRes3 == -1) {
@@ -73,7 +73,7 @@ string ConnectTCP::sendingData(int number, vector<unsigned int> sizes, vector <v
 
     int i = 0;
     while(i<number) {
-        int bufSizeTemporary[1];
+        unsigned int bufSizeTemporary[1];
         bufSizeTemporary[0] = sizes[i];
         int sendRes1 = send(sock, bufSizeTemporary, sizeof(bufSizeTemporary), 0); //отправка массива[1] размер строки
         if (sendRes1 == -1) {
@@ -82,9 +82,9 @@ string ConnectTCP::sendingData(int number, vector<unsigned int> sizes, vector <v
         }
 
 
-        double bufDataTemporary[sizes[i]];
+        uint32_t bufDataTemporary[sizes[i]];
         for (int l = 0; l < sizes[i]; l++) {
-            bufDataTemporary[l] = data[i][l];
+            bufDataTemporary[l] = vData[i][l];
         }
 
         int sendRes2 = send(sock, bufDataTemporary, sizeof(bufDataTemporary), 0); //отправка элементов
@@ -94,8 +94,9 @@ string ConnectTCP::sendingData(int number, vector<unsigned int> sizes, vector <v
         }
         //memset(bufRecv, 0, 4096);
         //cout <<  << endl
-        int bytesReceived1 = recv(sock, bufRecv, 16, 0);
-        cout << "Responce from server: " << *bufRecv << endl; //из байтов в числа!!!!! первый перевод неверный
+        int bytesReceived1 = recv(sock, bufRecv, 32, 0);
+        cout << "Responce from server: " << bufRecv << endl; //из байтов в числа!!!!! первый перевод неверный//ВЫВОДИТЬ В ВИДЕ ДВОИЧНОГО ЧИСЛА В ФАЙЛ
+        
         i++;
     }
 

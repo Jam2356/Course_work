@@ -19,7 +19,7 @@ class ConnectTCP
 public:
     char buf[4096];
     string sBuf;
-    double bufRecv[16];
+    char bufRecv[32];
     
     int serverPortTCP;
     int sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -27,6 +27,6 @@ public:
     int sendingID(string);
     void takeSalt();
     string sendingPass(string);
-    string sendingData(int, vector<unsigned int>, vector <vector<double>>);
+    string sendingData(unsigned int, vector<unsigned int>, vector <vector<uint32_t>>);
 
 };
