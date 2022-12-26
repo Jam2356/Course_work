@@ -17,7 +17,16 @@ using namespace CryptoPP;
 class ConnectTCP
 {
 public:
+    char buf[4096];
+    string sBuf;
+    double bufRecv[16];
+    
     int serverPortTCP;
-    int Print(int);
+    int sock = socket(AF_INET, SOCK_STREAM, 0);
+    void connection();
+    int sendingID(string);
+    void takeSalt();
+    string sendingPass(string);
+    string sendingData(int, vector<unsigned int>, vector <vector<double>>);
 
 };

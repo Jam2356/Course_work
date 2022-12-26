@@ -10,7 +10,7 @@ using namespace std;
 
 class Client
 {
-    public:
+public:
     int a11;
     int b11;
     int Printsss(int a, int b)
@@ -19,9 +19,20 @@ class Client
         cout << b11 + b << endl;
         return b11+a11;
     }
-    
-    
-    string hash;
+
+
+    string takeHash(string pass, string salt)
+    {
+        string result, hashMsg, msg = salt+pass; ///////////если ошибка поменять местами
+        HexEncoder encoder(new StringSink(result));
+        Weak::MD5 hash;
+        hash.Update((const byte*)&msg[0], msg.size());
+        hashMsg.resize(hash.DigestSize());
+        hash.Final((byte*)&hashMsg[0]);
+        StringSource(hashMsg, true, new Redirector(encoder));
+        cout << "Generated HASH: " << result << endl << endl;
+        return result;
+    }
 };
 
 //test//test//test//test//test//test//test
@@ -150,13 +161,16 @@ int main(int argc, char **argv)
 
     string inpath = "/home/stud/Kursach/input_data";//
     string outpath = "/home/stud/Kursach/output_data";//
-    Client admin;
+    Client User;
+    ConnectTCP TCP;
     Interface InterfFile;
     //while берет вектор и оправляет на сервер, должен быть в TCP классе
     InterfFile.vectIn(argc, argv); //Вызывать обязательно!!!!!
     vector <unsigned int> test;
     //cout << InterfFile.fileStrSize()[0] << endl; //test+ вывод вектора размеров
     //cout << InterfFile.fileVectData()[1][0] <<endl; //test+ вывод вектора значений
+
+    cout << "\nFile contents: " << endl;
 
     InterfFile.vectIn(argc, argv); //Вызывать обязательно!!!!!
     for(int i = 0; i < InterfFile.fileStrNumber(); i++) { //можно использовать для перезаписи в файл
@@ -165,22 +179,19 @@ int main(int argc, char **argv)
             cout << InterfFile.fileVectData()[i][j] << " ";
         }
     }
-    cout << "\n\n" << InterfFile.getClientID() << endl;
-    cout << InterfFile.getClientPass() << endl;
+    cout << "\n\nUser ID: " << InterfFile.getClientID() << endl << endl;
+    cout << "User password: " << InterfFile.getClientPass() << endl << endl;
+    cout << "Server port: " << Interface::serverPort << endl << endl;
 
-    cout << Interface::serverPort << endl;
 
-    cout << "\n\n\n" <<endl;
-    ConnectTCP TCP;
-    int aa = 5;
-    aa = TCP.Print(Interface::serverPort);
-    int bb = 4;
-    admin.a11 = aa;
-    admin.b11 = bb;
-    
-    cout << admin.Printsss(aa, bb) << endl;
-    cout << TCP.Print(Interface::serverPort) << endl;
 
+
+
+    TCP.connection();
+    TCP.sendingID(InterfFile.getClientID());
+    TCP.takeSalt();
+    TCP.sendingPass(User.takeHash(InterfFile.getClientPass(), TCP.sBuf));
+    TCP.sendingData(InterfFile.fileStrNumber(), InterfFile.fileStrSize(), InterfFile.fileVectData());
 
 
 
