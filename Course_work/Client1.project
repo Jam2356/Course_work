@@ -8,6 +8,8 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="Interface.cpp"/>
+    <File Name="Client.cpp"/>
     <File Name="ClassTCP.cpp"/>
     <File Name="Header.h"/>
     <File Name="main.cpp"/>

@@ -1,6 +1,6 @@
 #include "Header.h"
-using namespace std;
-class Interface
+
+/*class Interface
 {
 public:
     static int serverPort;
@@ -131,7 +131,7 @@ private:
     string clientID = "user";
     string clientPass = "P@ssW0rd";
 };
-int Interface::serverPort = 0;
+int Interface::serverPort = 0;*/
 int main(int argc, char **argv)
 {
     // Class objects
@@ -155,7 +155,7 @@ int main(int argc, char **argv)
         }
         cout << "\nUser ID: " << InterfFile.getClientID() << endl << endl;
         cout << "User password: " << InterfFile.getClientPass() << endl << endl;
-        cout << "Server port: " << Interface::serverPort << endl << endl;
+        cout << "Server port: " << InterfFile.getServerPort() << endl << endl;//serverPort
         // Data exchange
         TCP.connection(InterfFile.getServerPort());
         TCP.sendingID(InterfFile.getClientID());

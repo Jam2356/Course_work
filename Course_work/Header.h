@@ -46,3 +46,24 @@ class Client
 public:
     string takeHash(string, string);
 };
+class Interface
+{
+public:
+    unsigned int fileStrNumber();
+    vector<unsigned int> fileStrSize();
+    vector <vector<uint32_t>> fileVectData();
+    void vectIn(int argc, char **argv);
+    int saveResultNumber(uint32_t number, string resultF);
+    int saveResultData(uint32_t resultDat[], string resultF);
+    int getServerPort();
+    string getClientPass();
+    string getClientID();
+    string getPathResult();
+    string getPathSource();
+    unsigned int strNumber;
+    string sourceFile;
+    string resultFile;
+    string clientID = "user";
+    string clientPass = "P@ssW0rd";
+    int serverPort = 0;
+};
