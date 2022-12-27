@@ -1,21 +1,5 @@
 #include "Header.h"
 using namespace std;
-class Client
-{
-public:
-    string takeHash(string pass, string salt)
-    {
-        string result, hashMsg, msg = salt+pass;
-        HexEncoder encoder(new StringSink(result));
-        Weak::MD5 hash;
-        hash.Update((const byte*)&msg[0], msg.size());
-        hashMsg.resize(hash.DigestSize());
-        hash.Final((byte*)&hashMsg[0]);
-        StringSource(hashMsg, true, new Redirector(encoder));
-        cout << "Generated HASH: " << result << endl << endl;
-        return result;
-    }
-};
 class Interface
 {
 public:
@@ -93,9 +77,6 @@ public:
             string a = optarg;
             if(opt == 't') { //server port
                 serverPort = stoi(a);
-                if(serverPort > 49151 or serverPort < 1024) {
-                    throw cipher_error("Error server port\nClass and metod: Interface::vectIn\nVariable: serverPort < 1024 or serverPort > 49151");
-                }
             } else if(opt == 'r') { //puth file-source
                 sourceFile = a;
             } else if(opt == 'y') { //puth file-result

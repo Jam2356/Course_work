@@ -41,3 +41,8 @@ public:
     explicit cipher_error(const string& what_arg):
         invalid_argument(what_arg) {}
 };
+class Client
+{
+public:
+    string takeHash(string, string);
+};

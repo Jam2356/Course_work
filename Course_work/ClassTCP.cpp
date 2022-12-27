@@ -1,6 +1,9 @@
 #include "Header.h"
 int ConnectTCP::connection(int port)
 {
+    if(port > 49151 or port < 1024) {
+        throw cipher_error("Error server port\nClass and metod: ConnectTCP::connection\nVariable: port < 1024 or port > 49151");
+    }
     if (sock == -1) {
         throw cipher_error("Error socket\nClass and metod: ConnectTCP::connection\nVariable: sock = -1");
     }
@@ -47,7 +50,7 @@ string ConnectTCP::sendingPass(string completeHASH)
     if (bytesReceived1 == -1) {
         throw cipher_error("Error geting authentication\nClass and metod: ConnectTCP::sendingPass\nVariable: bytesReceived1 = -1");
     }
-    return charsMSG;//////////
+    return completeHASH;
 }
 int ConnectTCP::sendingData(unsigned int number, vector<unsigned int> sizes, vector <vector<uint32_t>> vData)
 {
