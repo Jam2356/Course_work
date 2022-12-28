@@ -1,0 +1,257 @@
+\hypertarget{classInterface}{}\doxysection{Interface Class Reference}
+\label{classInterface}\index{Interface@{Interface}}
+
+
+Receiving information from CMD. Correct extraction and sorting of file data.  
+
+
+
+
+{\ttfamily \#include $<$Header.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{classInterface_a5665d62cc3dc804ee5218601d7c5926c}{file\+Str\+Number}} (string)
+\begin{DoxyCompactList}\small\item\em Number of lines in file. \end{DoxyCompactList}\item 
+vector$<$ unsigned int $>$ \mbox{\hyperlink{classInterface_a34a71bd765ac1b77f5a4483319751294}{file\+Str\+Size}} (string)
+\begin{DoxyCompactList}\small\item\em Size of lines in file. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ uint32\+\_\+t $>$ $>$ \mbox{\hyperlink{classInterface_a21da0864ff3d2c7a320996350a423d18}{file\+Vect\+Data}} (string)
+\begin{DoxyCompactList}\small\item\em Value of lines in file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInterface_a14470a79d2b6789be0f52d3ff6c9f28e}{vect\+In}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Getting data from cmd. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classInterface_ab347b710600bb306438844e4e786f3ad}{save\+Result\+Number}} (uint32\+\_\+t number, string resultF)
+\begin{DoxyCompactList}\small\item\em Save number results. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classInterface_ab95342f05b5a88c22ef412f2ce7867f1}{save\+Result\+Data}} (uint32\+\_\+t result\+Dat\mbox{[}$\,$\mbox{]}, string resultF)
+\begin{DoxyCompactList}\small\item\em Save data results. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classInterface_afbf2dfe3863a5629dfae3c00a863583a}{get\+Server\+Port}} ()
+\item 
+string \mbox{\hyperlink{classInterface_ae12acfdb72c1ded4c25718615a3b0c45}{get\+Client\+Pass}} ()
+\item 
+string \mbox{\hyperlink{classInterface_a852ac885e0bb2bd44dee032381298b44}{get\+Client\+ID}} ()
+\item 
+string \mbox{\hyperlink{classInterface_ad883b420664c59a4a3dcc4bd03a68fe8}{get\+Path\+Result}} ()
+\item 
+string \mbox{\hyperlink{classInterface_ad6a21b2d873c1f0a2c61eafc210a8ecc}{get\+Path\+Source}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{classInterface_a6c8da95bf780075d790104456e25b2bd}{str\+Number}}
+\begin{DoxyCompactList}\small\item\em Number lines. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classInterface_a18cbfa6950fc11e50e0d11b07fe471a5}{source\+File}}
+\begin{DoxyCompactList}\small\item\em Path file source. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classInterface_a95208b615ca8665bc5c9acb49c0f1d30}{result\+File}}
+\begin{DoxyCompactList}\small\item\em Path file result. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classInterface_ab264f10b8f62073d986999644c2db545}{client\+ID}} = \char`\"{}user\char`\"{}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classClient}{Client}} ID. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classInterface_af7a653d37c892ddcffc13e68dafb8ae1}{client\+Pass}} = \char`\"{}P@ss\+W0rd\char`\"{}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classClient}{Client}} Password. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classInterface_a38702cfd9ce9ad8690fc75d9c42cb69f}{server\+Port}} = 0
+\begin{DoxyCompactList}\small\item\em Server port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Receiving information from CMD. Correct extraction and sorting of file data. 
+
+Methods\+: sile\+Str\+Number -\/ number of lines in file, file\+Str\+Size -\/ size of each line in file, file\+Vect\+Data -\/ values of all lines in file, vect\+In -\/ getting CMD options, save\+Result\+Number -\/ writing the number of results to file, save\+Result\+Data -\/ writing results to file. Methods \char`\"{}get\char`\"{}\+: get\+Server\+Port, get\+Client\+ID, get\+Client\+Pass, get\+Path\+Result, get\+Path\+Source. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classInterface_a5665d62cc3dc804ee5218601d7c5926c}\label{classInterface_a5665d62cc3dc804ee5218601d7c5926c}} 
+\index{Interface@{Interface}!fileStrNumber@{fileStrNumber}}
+\index{fileStrNumber@{fileStrNumber}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{fileStrNumber()}{fileStrNumber()}}
+{\footnotesize\ttfamily unsigned int Interface\+::file\+Str\+Number (\begin{DoxyParamCaption}\item[{string}]{source\+File }\end{DoxyParamCaption})}
+
+
+
+Number of lines in file. 
+
+\begin{DoxyReturn}{Returns}
+Return number of lines. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classErrors}{Errors}}} & Error open file source. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classInterface_a34a71bd765ac1b77f5a4483319751294}\label{classInterface_a34a71bd765ac1b77f5a4483319751294}} 
+\index{Interface@{Interface}!fileStrSize@{fileStrSize}}
+\index{fileStrSize@{fileStrSize}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{fileStrSize()}{fileStrSize()}}
+{\footnotesize\ttfamily vector$<$ unsigned int $>$ Interface\+::file\+Str\+Size (\begin{DoxyParamCaption}\item[{string}]{source\+File }\end{DoxyParamCaption})}
+
+
+
+Size of lines in file. 
+
+\begin{DoxyReturn}{Returns}
+Return vector of size lines. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classErrors}{Errors}}} & Error open file source. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classInterface_a21da0864ff3d2c7a320996350a423d18}\label{classInterface_a21da0864ff3d2c7a320996350a423d18}} 
+\index{Interface@{Interface}!fileVectData@{fileVectData}}
+\index{fileVectData@{fileVectData}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{fileVectData()}{fileVectData()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ uint32\+\_\+t $>$ $>$ Interface\+::file\+Vect\+Data (\begin{DoxyParamCaption}\item[{string}]{source\+File }\end{DoxyParamCaption})}
+
+
+
+Value of lines in file. 
+
+\begin{DoxyReturn}{Returns}
+Return 2D vector with vectors of values of all lines in file. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classErrors}{Errors}}} & Error open file source. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classInterface_a852ac885e0bb2bd44dee032381298b44}\label{classInterface_a852ac885e0bb2bd44dee032381298b44}} 
+\index{Interface@{Interface}!getClientID@{getClientID}}
+\index{getClientID@{getClientID}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{getClientID()}{getClientID()}}
+{\footnotesize\ttfamily string Interface\+::get\+Client\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classClient}{Client}} ID. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInterface_ae12acfdb72c1ded4c25718615a3b0c45}\label{classInterface_ae12acfdb72c1ded4c25718615a3b0c45}} 
+\index{Interface@{Interface}!getClientPass@{getClientPass}}
+\index{getClientPass@{getClientPass}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{getClientPass()}{getClientPass()}}
+{\footnotesize\ttfamily string Interface\+::get\+Client\+Pass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classClient}{Client}} password. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInterface_ad883b420664c59a4a3dcc4bd03a68fe8}\label{classInterface_ad883b420664c59a4a3dcc4bd03a68fe8}} 
+\index{Interface@{Interface}!getPathResult@{getPathResult}}
+\index{getPathResult@{getPathResult}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{getPathResult()}{getPathResult()}}
+{\footnotesize\ttfamily string Interface\+::get\+Path\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Path result file. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInterface_ad6a21b2d873c1f0a2c61eafc210a8ecc}\label{classInterface_ad6a21b2d873c1f0a2c61eafc210a8ecc}} 
+\index{Interface@{Interface}!getPathSource@{getPathSource}}
+\index{getPathSource@{getPathSource}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{getPathSource()}{getPathSource()}}
+{\footnotesize\ttfamily string Interface\+::get\+Path\+Source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Path source file. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInterface_afbf2dfe3863a5629dfae3c00a863583a}\label{classInterface_afbf2dfe3863a5629dfae3c00a863583a}} 
+\index{Interface@{Interface}!getServerPort@{getServerPort}}
+\index{getServerPort@{getServerPort}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{getServerPort()}{getServerPort()}}
+{\footnotesize\ttfamily int Interface\+::get\+Server\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Server port. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInterface_ab95342f05b5a88c22ef412f2ce7867f1}\label{classInterface_ab95342f05b5a88c22ef412f2ce7867f1}} 
+\index{Interface@{Interface}!saveResultData@{saveResultData}}
+\index{saveResultData@{saveResultData}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{saveResultData()}{saveResultData()}}
+{\footnotesize\ttfamily int Interface\+::save\+Result\+Data (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{result\+Dat\mbox{[}$\,$\mbox{]},  }\item[{string}]{resultF }\end{DoxyParamCaption})}
+
+
+
+Save data results. 
+
+\mbox{\Hypertarget{classInterface_ab347b710600bb306438844e4e786f3ad}\label{classInterface_ab347b710600bb306438844e4e786f3ad}} 
+\index{Interface@{Interface}!saveResultNumber@{saveResultNumber}}
+\index{saveResultNumber@{saveResultNumber}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{saveResultNumber()}{saveResultNumber()}}
+{\footnotesize\ttfamily int Interface\+::save\+Result\+Number (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{number,  }\item[{string}]{resultF }\end{DoxyParamCaption})}
+
+
+
+Save number results. 
+
+\mbox{\Hypertarget{classInterface_a14470a79d2b6789be0f52d3ff6c9f28e}\label{classInterface_a14470a79d2b6789be0f52d3ff6c9f28e}} 
+\index{Interface@{Interface}!vectIn@{vectIn}}
+\index{vectIn@{vectIn}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{vectIn()}{vectIn()}}
+{\footnotesize\ttfamily void Interface\+::vect\+In (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Getting data from cmd. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classInterface_ab264f10b8f62073d986999644c2db545}\label{classInterface_ab264f10b8f62073d986999644c2db545}} 
+\index{Interface@{Interface}!clientID@{clientID}}
+\index{clientID@{clientID}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{clientID}{clientID}}
+{\footnotesize\ttfamily string Interface\+::client\+ID = \char`\"{}user\char`\"{}}
+
+
+
+\mbox{\hyperlink{classClient}{Client}} ID. 
+
+\mbox{\Hypertarget{classInterface_af7a653d37c892ddcffc13e68dafb8ae1}\label{classInterface_af7a653d37c892ddcffc13e68dafb8ae1}} 
+\index{Interface@{Interface}!clientPass@{clientPass}}
+\index{clientPass@{clientPass}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{clientPass}{clientPass}}
+{\footnotesize\ttfamily string Interface\+::client\+Pass = \char`\"{}P@ss\+W0rd\char`\"{}}
+
+
+
+\mbox{\hyperlink{classClient}{Client}} Password. 
+
+\mbox{\Hypertarget{classInterface_a95208b615ca8665bc5c9acb49c0f1d30}\label{classInterface_a95208b615ca8665bc5c9acb49c0f1d30}} 
+\index{Interface@{Interface}!resultFile@{resultFile}}
+\index{resultFile@{resultFile}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{resultFile}{resultFile}}
+{\footnotesize\ttfamily string Interface\+::result\+File}
+
+
+
+Path file result. 
+
+\mbox{\Hypertarget{classInterface_a38702cfd9ce9ad8690fc75d9c42cb69f}\label{classInterface_a38702cfd9ce9ad8690fc75d9c42cb69f}} 
+\index{Interface@{Interface}!serverPort@{serverPort}}
+\index{serverPort@{serverPort}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{serverPort}{serverPort}}
+{\footnotesize\ttfamily int Interface\+::server\+Port = 0}
+
+
+
+Server port. 
+
+\mbox{\Hypertarget{classInterface_a18cbfa6950fc11e50e0d11b07fe471a5}\label{classInterface_a18cbfa6950fc11e50e0d11b07fe471a5}} 
+\index{Interface@{Interface}!sourceFile@{sourceFile}}
+\index{sourceFile@{sourceFile}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{sourceFile}{sourceFile}}
+{\footnotesize\ttfamily string Interface\+::source\+File}
+
+
+
+Path file source. 
+
+\mbox{\Hypertarget{classInterface_a6c8da95bf780075d790104456e25b2bd}\label{classInterface_a6c8da95bf780075d790104456e25b2bd}} 
+\index{Interface@{Interface}!strNumber@{strNumber}}
+\index{strNumber@{strNumber}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{strNumber}{strNumber}}
+{\footnotesize\ttfamily unsigned int Interface\+::str\+Number}
+
+
+
+Number lines. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Header_8h}{Header.\+h}}\item 
+\mbox{\hyperlink{Interface_8cpp}{Interface.\+cpp}}\end{DoxyCompactItemize}

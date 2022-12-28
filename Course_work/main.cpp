@@ -1,5 +1,10 @@
+/** @file
+ * @author Pavlov I.V.
+ * @version 2.4
+ * @date 23.12.2022
+ * @brief main.cpp
+ */
 #include "Header.h"
-
 int main(int argc, char **argv)
 {
     // Class objects
@@ -33,7 +38,7 @@ int main(int argc, char **argv)
         InterfFile.saveResultNumber(TCP.countNumberResult, InterfFile.getPathResult());
         InterfFile.saveResultData(TCP.saveData, InterfFile.getPathResult());
         TCP.closeConnect();
-    } catch (const cipher_error & e) {
+    } catch (const Errors & e) {
         cerr << "\n\tError:\n" << e.what() << endl << endl;
     }
     return 0;

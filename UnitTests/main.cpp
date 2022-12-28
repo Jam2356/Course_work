@@ -36,7 +36,7 @@ SUITE(HASH)
         CHECK_EQUAL("F9C1E496823EBD52340672DC1CB2D87F",Client().takeHash("pass","salt"));
     }
     TEST(Hash2) {
-        CHECK_EQUAL("83234657C5DF8232839AC8C0572E158D",Client().takeHash("salt","pass"));
+        CHECK_EQUAL("0DDE5185DB7DA5C81F0FA71696506E4F",Client().takeHash("salt","123"));
     }
 }
 SUITE(TInterface)

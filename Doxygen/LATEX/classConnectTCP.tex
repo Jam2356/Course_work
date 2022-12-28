@@ -1,0 +1,227 @@
+\hypertarget{classConnectTCP}{}\doxysection{Connect\+TCP Class Reference}
+\label{classConnectTCP}\index{ConnectTCP@{ConnectTCP}}
+
+
+TCP connection establishment, data transfer.  
+
+
+
+
+{\ttfamily \#include $<$Header.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classConnectTCP_a069f7279a1782d138ac82e63904acbdc}{connection}} (int)
+\begin{DoxyCompactList}\small\item\em TCP connection establishment. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classConnectTCP_aba0f1be7240a481d622c068f2fa1e01a}{sending\+ID}} (string)
+\begin{DoxyCompactList}\small\item\em Send ID to server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConnectTCP_a30b1cd126d223fc6321b4107825e4c89}{get\+Salt}} ()
+\begin{DoxyCompactList}\small\item\em Receiving salt. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classConnectTCP_a36ec211c04e69a622d0e79b146156788}{sending\+Pass}} (string)
+\begin{DoxyCompactList}\small\item\em Send hash to server. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classConnectTCP_ac0dbfb34d053310654737697f606f05a}{sending\+Data}} (unsigned int, vector$<$ unsigned int $>$, vector$<$ vector$<$ uint32\+\_\+t $>$$>$)
+\begin{DoxyCompactList}\small\item\em Send data to server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConnectTCP_a749a733cd226ef6c8a7b4fa369a586da}{close\+Connect}} ()
+\begin{DoxyCompactList}\small\item\em Disconnect, close the soket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{classConnectTCP_a3bc430c83082761551a6584feaf5ad50}{buf}} \mbox{[}4096\mbox{]}
+\begin{DoxyCompactList}\small\item\em Bufer receive. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classConnectTCP_a80d36f23773bc686100aa162f18337b4}{s\+Buf}}
+\begin{DoxyCompactList}\small\item\em Bufer in string. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classConnectTCP_a43cc6437a245211813bcc47d7e12abe8}{ok\+Err}} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em Bufer authentication. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classConnectTCP_aa9127c9d7156713e3926db511a52af31}{buf\+Recv}} \mbox{[}32\mbox{]}
+\begin{DoxyCompactList}\small\item\em Temporary bufer result. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classConnectTCP_ad16966c580a9fb3d04bfe22f20395de9}{count\+Number\+Result}} = 0
+\begin{DoxyCompactList}\small\item\em Number result. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classConnectTCP_ae0971c55638e93f45ea891a77e6e8fbf}{save\+Data}} \mbox{[}200\mbox{]}
+\begin{DoxyCompactList}\small\item\em Bufer result. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classConnectTCP_a02264adf7221d778d00fdaa638c635e0}{server\+Port\+TCP}}
+\begin{DoxyCompactList}\small\item\em Server port. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classConnectTCP_a4f17f0ee5d16c604f6101102e2d3ff45}{sock}} = socket(AF\+\_\+\+INET, SOCK\+\_\+\+STREAM, 0)
+\begin{DoxyCompactList}\small\item\em Socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+TCP connection establishment, data transfer. 
+
+Methods\+: connection -\/ connection establishment, sending\+ID -\/ send user id, get\+Salt -\/ receiving salt, sending\+Pass -\/ send hash, sending\+Data -\/ correct sending of data. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classConnectTCP_a749a733cd226ef6c8a7b4fa369a586da}\label{classConnectTCP_a749a733cd226ef6c8a7b4fa369a586da}} 
+\index{ConnectTCP@{ConnectTCP}!closeConnect@{closeConnect}}
+\index{closeConnect@{closeConnect}!ConnectTCP@{ConnectTCP}}
+\doxysubsubsection{\texorpdfstring{closeConnect()}{closeConnect()}}
+{\footnotesize\ttfamily void Connect\+TCP\+::close\+Connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Disconnect, close the soket. 
+
+\mbox{\Hypertarget{classConnectTCP_a069f7279a1782d138ac82e63904acbdc}\label{classConnectTCP_a069f7279a1782d138ac82e63904acbdc}} 
+\index{ConnectTCP@{ConnectTCP}!connection@{connection}}
+\index{connection@{connection}!ConnectTCP@{ConnectTCP}}
+\doxysubsubsection{\texorpdfstring{connection()}{connection()}}
+{\footnotesize\ttfamily int Connect\+TCP\+::connection (\begin{DoxyParamCaption}\item[{int}]{port }\end{DoxyParamCaption})}
+
+
+
+TCP connection establishment. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classErrors}{Errors}}} & Error server port. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classConnectTCP_a30b1cd126d223fc6321b4107825e4c89}\label{classConnectTCP_a30b1cd126d223fc6321b4107825e4c89}} 
+\index{ConnectTCP@{ConnectTCP}!getSalt@{getSalt}}
+\index{getSalt@{getSalt}!ConnectTCP@{ConnectTCP}}
+\doxysubsubsection{\texorpdfstring{getSalt()}{getSalt()}}
+{\footnotesize\ttfamily void Connect\+TCP\+::get\+Salt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Receiving salt. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classErrors}{Errors}}} & Error geting SALT. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classConnectTCP_ac0dbfb34d053310654737697f606f05a}\label{classConnectTCP_ac0dbfb34d053310654737697f606f05a}} 
+\index{ConnectTCP@{ConnectTCP}!sendingData@{sendingData}}
+\index{sendingData@{sendingData}!ConnectTCP@{ConnectTCP}}
+\doxysubsubsection{\texorpdfstring{sendingData()}{sendingData()}}
+{\footnotesize\ttfamily int Connect\+TCP\+::sending\+Data (\begin{DoxyParamCaption}\item[{unsigned int}]{number,  }\item[{vector$<$ unsigned int $>$}]{sizes,  }\item[{vector$<$ vector$<$ uint32\+\_\+t $>$$>$}]{v\+Data }\end{DoxyParamCaption})}
+
+
+
+Send data to server. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classErrors}{Errors}}} & Error sending number of rows, Error sending string size, Error sending string values, Error getting result. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classConnectTCP_aba0f1be7240a481d622c068f2fa1e01a}\label{classConnectTCP_aba0f1be7240a481d622c068f2fa1e01a}} 
+\index{ConnectTCP@{ConnectTCP}!sendingID@{sendingID}}
+\index{sendingID@{sendingID}!ConnectTCP@{ConnectTCP}}
+\doxysubsubsection{\texorpdfstring{sendingID()}{sendingID()}}
+{\footnotesize\ttfamily int Connect\+TCP\+::sending\+ID (\begin{DoxyParamCaption}\item[{string}]{ID }\end{DoxyParamCaption})}
+
+
+
+Send ID to server. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classErrors}{Errors}}} & Error sending ID. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classConnectTCP_a36ec211c04e69a622d0e79b146156788}\label{classConnectTCP_a36ec211c04e69a622d0e79b146156788}} 
+\index{ConnectTCP@{ConnectTCP}!sendingPass@{sendingPass}}
+\index{sendingPass@{sendingPass}!ConnectTCP@{ConnectTCP}}
+\doxysubsubsection{\texorpdfstring{sendingPass()}{sendingPass()}}
+{\footnotesize\ttfamily string Connect\+TCP\+::sending\+Pass (\begin{DoxyParamCaption}\item[{string}]{complete\+HASH }\end{DoxyParamCaption})}
+
+
+
+Send hash to server. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classErrors}{Errors}}} & Error sending password, Error geting authentication. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classConnectTCP_a3bc430c83082761551a6584feaf5ad50}\label{classConnectTCP_a3bc430c83082761551a6584feaf5ad50}} 
+\index{ConnectTCP@{ConnectTCP}!buf@{buf}}
+\index{buf@{buf}!ConnectTCP@{ConnectTCP}}
+\doxysubsubsection{\texorpdfstring{buf}{buf}}
+{\footnotesize\ttfamily char Connect\+TCP\+::buf\mbox{[}4096\mbox{]}}
+
+
+
+Bufer receive. 
+
+\mbox{\Hypertarget{classConnectTCP_aa9127c9d7156713e3926db511a52af31}\label{classConnectTCP_aa9127c9d7156713e3926db511a52af31}} 
+\index{ConnectTCP@{ConnectTCP}!bufRecv@{bufRecv}}
+\index{bufRecv@{bufRecv}!ConnectTCP@{ConnectTCP}}
+\doxysubsubsection{\texorpdfstring{bufRecv}{bufRecv}}
+{\footnotesize\ttfamily uint32\+\_\+t Connect\+TCP\+::buf\+Recv\mbox{[}32\mbox{]}}
+
+
+
+Temporary bufer result. 
+
+\mbox{\Hypertarget{classConnectTCP_ad16966c580a9fb3d04bfe22f20395de9}\label{classConnectTCP_ad16966c580a9fb3d04bfe22f20395de9}} 
+\index{ConnectTCP@{ConnectTCP}!countNumberResult@{countNumberResult}}
+\index{countNumberResult@{countNumberResult}!ConnectTCP@{ConnectTCP}}
+\doxysubsubsection{\texorpdfstring{countNumberResult}{countNumberResult}}
+{\footnotesize\ttfamily uint32\+\_\+t Connect\+TCP\+::count\+Number\+Result = 0}
+
+
+
+Number result. 
+
+\mbox{\Hypertarget{classConnectTCP_a43cc6437a245211813bcc47d7e12abe8}\label{classConnectTCP_a43cc6437a245211813bcc47d7e12abe8}} 
+\index{ConnectTCP@{ConnectTCP}!okErr@{okErr}}
+\index{okErr@{okErr}!ConnectTCP@{ConnectTCP}}
+\doxysubsubsection{\texorpdfstring{okErr}{okErr}}
+{\footnotesize\ttfamily char Connect\+TCP\+::ok\+Err\mbox{[}2\mbox{]}}
+
+
+
+Bufer authentication. 
+
+\mbox{\Hypertarget{classConnectTCP_ae0971c55638e93f45ea891a77e6e8fbf}\label{classConnectTCP_ae0971c55638e93f45ea891a77e6e8fbf}} 
+\index{ConnectTCP@{ConnectTCP}!saveData@{saveData}}
+\index{saveData@{saveData}!ConnectTCP@{ConnectTCP}}
+\doxysubsubsection{\texorpdfstring{saveData}{saveData}}
+{\footnotesize\ttfamily uint32\+\_\+t Connect\+TCP\+::save\+Data\mbox{[}200\mbox{]}}
+
+
+
+Bufer result. 
+
+\mbox{\Hypertarget{classConnectTCP_a80d36f23773bc686100aa162f18337b4}\label{classConnectTCP_a80d36f23773bc686100aa162f18337b4}} 
+\index{ConnectTCP@{ConnectTCP}!sBuf@{sBuf}}
+\index{sBuf@{sBuf}!ConnectTCP@{ConnectTCP}}
+\doxysubsubsection{\texorpdfstring{sBuf}{sBuf}}
+{\footnotesize\ttfamily string Connect\+TCP\+::s\+Buf}
+
+
+
+Bufer in string. 
+
+\mbox{\Hypertarget{classConnectTCP_a02264adf7221d778d00fdaa638c635e0}\label{classConnectTCP_a02264adf7221d778d00fdaa638c635e0}} 
+\index{ConnectTCP@{ConnectTCP}!serverPortTCP@{serverPortTCP}}
+\index{serverPortTCP@{serverPortTCP}!ConnectTCP@{ConnectTCP}}
+\doxysubsubsection{\texorpdfstring{serverPortTCP}{serverPortTCP}}
+{\footnotesize\ttfamily int Connect\+TCP\+::server\+Port\+TCP}
+
+
+
+Server port. 
+
+\mbox{\Hypertarget{classConnectTCP_a4f17f0ee5d16c604f6101102e2d3ff45}\label{classConnectTCP_a4f17f0ee5d16c604f6101102e2d3ff45}} 
+\index{ConnectTCP@{ConnectTCP}!sock@{sock}}
+\index{sock@{sock}!ConnectTCP@{ConnectTCP}}
+\doxysubsubsection{\texorpdfstring{sock}{sock}}
+{\footnotesize\ttfamily int Connect\+TCP\+::sock = socket(AF\+\_\+\+INET, SOCK\+\_\+\+STREAM, 0)}
+
+
+
+Socket. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Header_8h}{Header.\+h}}\item 
+\mbox{\hyperlink{ClassTCP_8cpp}{Class\+TCP.\+cpp}}\end{DoxyCompactItemize}
