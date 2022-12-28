@@ -1,7 +1,7 @@
 #include "Header.h"
 
 
-unsigned int Interface::fileStrNumber()
+unsigned int Interface::fileStrNumber(string sourceFile)
 {
     ifstream input(sourceFile);
     string l;
@@ -14,7 +14,7 @@ unsigned int Interface::fileStrNumber()
     input.close();
     return strNumber;
 }
-vector<unsigned int> Interface::fileStrSize()
+vector<unsigned int> Interface::fileStrSize(string sourceFile)
 {
     ifstream input(sourceFile);
     if(!input.is_open()) {
@@ -32,7 +32,7 @@ vector<unsigned int> Interface::fileStrSize()
     input.close();
     return sizeVect;
 }
-vector <vector<uint32_t>> Interface::fileVectData()
+vector <vector<uint32_t>> Interface::fileVectData(string sourceFile)
 {
     ifstream input1(sourceFile);
     if(!input1.is_open()) {
@@ -47,7 +47,7 @@ vector <vector<uint32_t>> Interface::fileVectData()
         getline(input1, l);
         l.erase(0, 2);
         stringstream input_stringstream(l);
-        for(int j = 0; j < fileStrSize()[i]; j++) {
+        for(int j = 0; j < fileStrSize(sourceFile)[i]; j++) {
             if (getline(input_stringstream,parsed,' ')) {
                 uint32_t dou = atoi(parsed.c_str());
                 vec.at(i).push_back(dou);
@@ -84,9 +84,6 @@ void Interface::vectIn(int argc, char **argv)
 int Interface::saveResultNumber(uint32_t number, string resultF)
 {
     ofstream outputF(resultF, ios::binary);
-    if(!outputF.is_open()) {
-        throw cipher_error("Error open file result\nClass and metod: Interface::saveResultNumber\nVariable: outputF.is_open = false");
-    }
     outputF.write((char*)&number, sizeof(number));
     outputF.close();
     return 0;
@@ -94,9 +91,6 @@ int Interface::saveResultNumber(uint32_t number, string resultF)
 int Interface::saveResultData(uint32_t resultDat[], string resultF)
 {
     ofstream outputF(resultF, ios::binary | ios::app);
-    if(!outputF.is_open()) {
-        throw cipher_error("Error open file result\nClass and metod: Interface::saveResultData\nVariable: outputF.is_open = false");
-    }
     outputF.write((char*)&resultDat, sizeof(resultDat));
     outputF.close();
     return 0;

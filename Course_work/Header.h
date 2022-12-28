@@ -49,9 +49,9 @@ public:
 class Interface
 {
 public:
-    unsigned int fileStrNumber();
-    vector<unsigned int> fileStrSize();
-    vector <vector<uint32_t>> fileVectData();
+    unsigned int fileStrNumber(string);
+    vector<unsigned int> fileStrSize(string);
+    vector <vector<uint32_t>> fileVectData(string);
     void vectIn(int argc, char **argv);
     int saveResultNumber(uint32_t number, string resultF);
     int saveResultData(uint32_t resultDat[], string resultF);
