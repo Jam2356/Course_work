@@ -1,5 +1,4 @@
 #include <UnitTest++/UnitTest++.h>
-//#include "/home/stud/C++Projects/C++Project/Client1/main.cpp"
 #include "/home/stud/C++Projects/C++Project/Client1/Interface.cpp"
 #include "/home/stud/C++Projects/C++Project/Client1/ClassTCP.cpp"
 #include "/home/stud/C++Projects/C++Project/Client1/Client.cpp"
@@ -10,16 +9,16 @@
 SUITE(TPort)
 {
     TEST(nullPort) {
-        CHECK_THROW(ConnectTCP().connection(0),cipher_error);
+        CHECK_THROW(ConnectTCP().connection(0),Errors);
     }
     TEST(lowPort) {
-        CHECK_THROW(ConnectTCP().connection(333),cipher_error);
+        CHECK_THROW(ConnectTCP().connection(333),Errors);
     }
     TEST(bigPort) {
-        CHECK_THROW(ConnectTCP().connection(50000),cipher_error);
+        CHECK_THROW(ConnectTCP().connection(50000),Errors);
     }
 }
-SUITE(TReturnValue)
+SUITE(Connection)
 {
     TEST(connection) {
         ConnectTCP().sock;
@@ -27,7 +26,7 @@ SUITE(TReturnValue)
     }
     TEST(connectionErr) {
         ConnectTCP().sock;
-        CHECK_THROW(ConnectTCP().connection(3333),cipher_error);
+        CHECK_THROW(ConnectTCP().connection(3333),Errors);
     }
 }
 SUITE(HASH)
@@ -43,15 +42,15 @@ SUITE(TInterface)
 {
     TEST(Interface1) {
         string sourceFile = "/home/stud/Kursach/sadasdas";
-        CHECK_THROW(Interface().fileStrNumber(sourceFile),cipher_error);
+        CHECK_THROW(Interface().fileStrNumber(sourceFile),Errors);
     }
     TEST(Interface2) {
         string sourceFile = "/home/stud/Kursach/sa";
-        CHECK_THROW(Interface().fileStrSize(sourceFile),cipher_error);
+        CHECK_THROW(Interface().fileStrSize(sourceFile),Errors);
     }
     TEST(Interface3) {
-        string sourceFile = "/home/stud/Kursach/sa";
-        CHECK_THROW(Interface().fileVectData(sourceFile),cipher_error);
+        string sourceFile = "/home/stud/Kursach/saff";
+        CHECK_THROW(Interface().fileVectData(sourceFile),Errors);
     }
 }
 int main(int argc, char **argv)
